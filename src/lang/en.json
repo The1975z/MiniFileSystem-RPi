@@ -1,0 +1,134 @@
+{
+  "app": {
+    "title": "FILE-MANAGEMENT-SYSTEM-OS",
+    "name": "FILE-MANAGEMENT",
+    "subtitle": "SYSTEM-OS"
+  },
+  "menu": {
+    "connect": "🔌 Connect",
+    "disconnect": "🔌 Disconnect",
+    "refresh": "🔄 Refresh",
+    "new_file": "📄 New File",
+    "new_folder": "📁 New Folder",
+    "upload": "📤 Upload",
+    "download": "📥 Download"
+  },
+  "settings": {
+    "language": "Language:",
+    "appearance": "Appearance:",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "tabs": {
+    "files": "📂 Files",
+    "terminal": "💻 Terminal"
+  },
+  "browser": {
+    "local_title": "💻 My Computer (Local)",
+    "remote_title": "🌐 Server (Remote)",
+    "filename": "Filename",
+    "size": "Size",
+    "permissions": "Permissions",
+    "modified": "Modified",
+    "folder": "<DIR>"
+  },
+  "toolbar": {
+    "current_path": "Current Path",
+    "search": "Search..."
+  },
+  "transfer": {
+    "copy": "Copy",
+    "upload_arrow": "→\nUpload",
+    "download_arrow": "←\nDownload"
+  },
+  "connection": {
+    "title": "Connect to Server",
+    "saved_connections": "Saved Connections:",
+    "connection_name": "Connection Name:",
+    "protocol": "Protocol:",
+    "hostname": "Hostname:",
+    "port": "Port:",
+    "username": "Username:",
+    "password": "Password:",
+    "passphrase": "Passphrase:",
+    "identity_file": "Identity File (SSH Key):",
+    "browse": "Browse",
+    "save_connection": "Save connection",
+    "cancel": "Cancel",
+    "connect": "Connect"
+  },
+  "connection_progress": {
+    "title": "Connecting...",
+    "searching_host": "Searching for host...\nResolving hostname and looking up server",
+    "connecting": "Connecting to host...\nEstablishing TCP connection to SSH port",
+    "authenticating": "Authenticating...\nStarting authentication process",
+    "using_username": "Using username \"{username}\"\nAuthenticating with provided username",
+    "auth_public_key": "Authenticating with public key \"{key}\"\nUsing SSH key for authentication",
+    "auth_password": "Authenticating with password...\nUsing password for authentication",
+    "loading_keys": "Loading private key...\nReading SSH private key file",
+    "success": "Connection successful!\nSuccessfully connected to server",
+    "failed": "Connection failed\nUnable to establish connection"
+  },
+  "passphrase": {
+    "title": "Passphrase Required",
+    "message": "Your SSH key is protected with a passphrase\nPlease enter the passphrase to unlock the key",
+    "placeholder": "Enter passphrase here",
+    "ok": "OK",
+    "cancel": "Cancel"
+  },
+  "terminal": {
+    "title": "💻 Terminal (SSH)",
+    "placeholder": "Type command here...",
+    "send": "Send Command"
+  },
+  "context_menu": {
+    "download": "📥 Download",
+    "rename": "✏️ Rename",
+    "delete": "🗑️ Delete",
+    "properties": "ℹ️ Properties"
+  },
+  "status": {
+    "not_connected": "Not Connected",
+    "connected": "Connected to:",
+    "disconnected": "Disconnected",
+    "disk_usage": "Disk: {used}GB / {total}GB ({percent}%) - Free: {free}GB"
+  },
+  "messages": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information",
+    "file_uploaded": "File uploaded successfully",
+    "file_downloaded": "File downloaded successfully",
+    "file_created": "File created successfully",
+    "folder_created": "Folder created successfully",
+    "renamed": "Renamed successfully",
+    "deleted": "Deleted successfully",
+    "connection_error": "Connection Error",
+    "select_file_upload": "Please select a file to upload",
+    "select_file_download": "Please select a file to download"
+  },
+  "dialogs": {
+    "new_file_title": "New File",
+    "new_folder_title": "New Folder",
+    "filename": "Filename:",
+    "foldername": "Folder name:",
+    "rename_title": "Rename",
+    "rename_prompt": "Rename '{name}' to:",
+    "delete_title": "Confirm Delete",
+    "delete_confirm": "Delete '{name}'?",
+    "properties_title": "Properties",
+    "save_as": "Save file as"
+  },
+  "properties": {
+    "name": "Name:",
+    "path": "Path:",
+    "size": "Size:",
+    "permissions": "Permissions:",
+    "modified": "Modified:",
+    "type": "Type:",
+    "type_folder": "Folder",
+    "type_file": "File"
+  }
+}
