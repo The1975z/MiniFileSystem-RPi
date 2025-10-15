@@ -87,20 +87,28 @@ class Sidebar(ctk.CTkFrame):
         )
         self.new_folder_btn.grid(row=7, column=0, padx=20, pady=10)
 
+        self.delete_btn = ctk.CTkButton(
+            self,
+            text="🗑️ ลบไฟล์/โฟลเดอร์",
+            command=self._handle_delete,
+            state="disabled"
+        )
+        self.delete_btn.grid(row=8, column=0, padx=20, pady=10)
+
         self.upload_btn = ctk.CTkButton(
             self,
             text="📤 อัปโหลด",
             command=self._handle_upload,
             state="disabled"
         )
-        self.upload_btn.grid(row=8, column=0, padx=20, pady=10)
+        self.upload_btn.grid(row=9, column=0, padx=20, pady=10)
 
         self.language_label = ctk.CTkLabel(
             self,
             text="ภาษา:",
             anchor="w"
         )
-        self.language_label.grid(row=9, column=0, padx=20, pady=(10, 0))
+        self.language_label.grid(row=10, column=0, padx=20, pady=(10, 0))
 
         self.language_menu = ctk.CTkOptionMenu(
             self,
@@ -108,14 +116,14 @@ class Sidebar(ctk.CTkFrame):
             command=self._handle_language_change
         )
         self.language_menu.set("ไทย 🇹🇭")
-        self.language_menu.grid(row=10, column=0, padx=20, pady=(10, 10))
+        self.language_menu.grid(row=11, column=0, padx=20, pady=(10, 10))
 
         self.appearance_label = ctk.CTkLabel(
             self,
             text="รูปแบบ:",
             anchor="w"
         )
-        self.appearance_label.grid(row=11, column=0, padx=20, pady=(10, 0))
+        self.appearance_label.grid(row=12, column=0, padx=20, pady=(10, 0))
 
         self.appearance_menu = ctk.CTkOptionMenu(
             self,
@@ -123,7 +131,7 @@ class Sidebar(ctk.CTkFrame):
             command=self._handle_appearance_change
         )
         self.appearance_menu.set("มืด")
-        self.appearance_menu.grid(row=12, column=0, padx=20, pady=(10, 20))
+        self.appearance_menu.grid(row=13, column=0, padx=20, pady=(10, 20))
 
     def set_connected(self, connected: bool):
         if connected:
@@ -214,3 +222,7 @@ class Sidebar(ctk.CTkFrame):
         else:
             self.appearance_menu.configure(values=[texts.get("light"), texts.get("dark"), texts.get("system")])
             self.appearance_menu.set(texts.get("system"))
+
+    def _handle_delete(self):
+        if self.on_delete:
+            self.on_delete()

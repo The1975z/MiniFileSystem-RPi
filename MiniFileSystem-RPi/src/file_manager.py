@@ -81,3 +81,10 @@ class FileManager:
             print(f"Permissions : {detail.st_mode}") 
         except (FileNotFoundError) as e :  
             print("....")
+
+    def delete_file_or_folder(self, path):
+        try:
+            self.remove_path(path)
+            return True, "ลบสำเร็จ"
+        except Exception as e:
+            return False, str(e)

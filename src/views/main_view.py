@@ -1,3 +1,4 @@
+import shutil
 import customtkinter as ctk
 from tkinter import filedialog, messagebox
 from typing import Optional
@@ -10,6 +11,9 @@ from views.terminal_view import TerminalView
 from views.connection_dialog import ConnectionDialog
 from views.passphrase_dialog import PassphraseDialog
 from controllers.main_controller import MainController
+
+
+
 class MainView(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -173,6 +177,7 @@ class MainView(ctk.CTk):
         self.terminal.on_command = self._handle_terminal_command
 
     def _bind_controllers(self):
+        self.sidebar.on_delete = self._handle_delete
         self.sidebar.on_connect = self._handle_connect
         self.sidebar.on_load_config = self._handle_load_config
         self.sidebar.on_disconnect = self._handle_disconnect
@@ -483,6 +488,24 @@ class MainView(ctk.CTk):
                 self._handle_refresh()
             else:
                 messagebox.showerror("ข้อผิดพลาด", message)
+    
+    def _handle_delete(self):
+        file_controller = self.controller.get_file_controller()
+        target = self.selected_local_file or self.selected_remote_file
+        if not target:
+            messagebox.showwarning("คำเตือน", "กรุณาเลือกไฟล์หรือโฟลเดอร์ก่อนลบ")
+            return
+
+        confirm = messagebox.askyesno("ยืนยันการลบ", f"คุณต้องการลบ '{target.name}' หรือไม่?")
+        if not confirm:
+            return
+
+        success, message = file_controller.delete_file_or_folder(target.path)
+        if success:
+                messagebox.showinfo("สำเร็จ", f"ลบ '{target.name}' สำเร็จแล้ว")
+                self._handle_refresh()
+        else:
+            messagebox.showerror("ข้อผิดพลาด", message)
 
     def _quick_upload(self):
         if not self.selected_local_file or self.selected_local_file.is_dir:
@@ -788,3 +811,4 @@ class MainView(ctk.CTk):
         fc = self.controller.get_file_controller()
         self.remote_browser.update_sort_indicator(getattr(fc, "sort_key", "name"),
                                                 getattr(fc, "sort_reverse", False))
+        
