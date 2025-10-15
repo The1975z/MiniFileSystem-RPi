@@ -16,6 +16,8 @@ class MainView(ctk.CTk):
 
         self.title("FILE-MANAGEMENT-SYSTEM-OS")
         self.geometry("1400x800")
+        
+        self._sort_state = {"name": False, "size": False, "modified": False}
 
         self.controller = MainController()
         self.selected_local_file = None
@@ -26,6 +28,7 @@ class MainView(ctk.CTk):
 
         self._setup_ui()
         self._bind_controllers()
+        self.remote_browser.on_sort = self._handle_sort
 
     def _setup_ui(self):
         self.grid_columnconfigure(1, weight=1)
@@ -158,6 +161,7 @@ class MainView(ctk.CTk):
             state="disabled"
         )
         self.download_btn.pack(pady=10)
+        
 
     def _setup_terminal_tab(self):
         terminal_tab = self.tabview.tab("💻 Terminal")
@@ -772,3 +776,15 @@ class MainView(ctk.CTk):
 
         self.connection_timer_label.configure(text=time_str)
         self.after(1000, self._update_connection_timer)
+
+    def _handle_sort(self, key: str):
+        self._sort_state[key] = not self._sort_state.get(key, False)
+        reverse = self._sort_state[key]
+
+        fc = self.controller.get_file_controller()
+        fc.set_sort(key, reverse)            # มีอยู่แล้วใน FileController
+        self.remote_browser.update_sort_indicator(key, reverse)
+        self._handle_refresh()
+        fc = self.controller.get_file_controller()
+        self.remote_browser.update_sort_indicator(getattr(fc, "sort_key", "name"),
+                                                getattr(fc, "sort_reverse", False))
