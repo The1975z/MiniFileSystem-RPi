@@ -1,0 +1,28 @@
+GUI-OS/
+├── src/
+├── customtkinter/                    # CustomTkinter library
+│   ├── assets/
+│   │   ├── fonts/
+│   │   │   ├── CustomTkinter_shapes_font.otf
+│   │   │   └── Roboto/
+│   │   ├── icons/
+│   │   └── themes/
+│   │       ├── blue.json
+│   │       ├── dark-blue.json
+│   │       └── green.json
+│   ├── models/                          # Data & Business Logic Layer
+│   │   ├── config_manager.py           # จัดการ config การเชื่อมต่อ
+│   │   ├── ssh_connection.py           # จัดการการเชื่อมต่อ SSH/SFTP
+│   │   └── file_operations.py          # ดำเนินการไฟล์ทั้งหมด (FR1-FR30)
+│   ├── controllers/                     # Controller Layer
+│   │   ├── main_controller.py          # Controller หลัก
+│   │   ├── connection_controller.py    # ควบคุมการเชื่อมต่อ
+│   │   └── file_controller.py          # ควบคุมไฟล์
+│   ├── views/                          # Presentation Layer (GUI)
+│   │   ├── main_view.py               # หน้าจอหลัก
+│   │   ├── connection_dialog.py       # Dialog สำหรับ connect (FR32, FR33)
+│   │   ├── file_browser.py            # แสดงรายการไฟล์ (FR5)
+│   │   └── sidebar.py                 # Sidebar menu
+│   └── main.py                        # Entry point
+├── customtkinter/                      # CustomTkinter library
+└── requirements.txt                    # Dependencies
